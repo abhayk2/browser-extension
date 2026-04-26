@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 220px;
+      padding: 16px;
+      font-family: sans-serif;
+      background: #1a1a2e;
+      color: white;
+      margin: 0;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 16px;
+      color: #e94560;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      background: #16213e;
+      color: white;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #e94560;
+    }
+
+    #zoom-level {
+      text-align: center;
+      font-size: 13px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h2>🎬 Video Zoomer</h2>
+  <button class="btn" id="zoom-in">🔍 Zoom In</button>
+  <button class="btn" id="zoom-out">🔎 Zoom Out</button>
+  <button class="btn" id="zoom-reset">↺ Reset Zoom</button>
+  <p id="zoom-level">Zoom: 100%</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
