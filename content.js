@@ -1,9 +1,28 @@
 
-let currentZoom = 1;                 
-const ZOOM_STEP = 0.1;              
-const MAX_ZOOM = 5;                 
-const MIN_ZOOM = 0.2;               
+let currentZoom = 1;
+const ZOOM_STEP = 0.1;
+const MAX_ZOOM = 5;
+const MIN_ZOOM = 0.2;
 
+function findTarget() {
+  const video = document.querySelector('video');
+  if (video) return video;
+
+  const iframes = document.querySelectorAll('iframe');
+  for (const iframe of iframes) {
+    const src = iframe.src || '';
+    if (
+      src.includes('hotmart') ||
+      src.includes('wistia') ||
+      src.includes('youtube') ||
+      src.includes('vimeo') ||
+      src.includes('embed')
+    ) {
+      return iframe;
+    }
+  }
+  return null;
+}
 
 function wrapVideo(video) {
 
@@ -14,7 +33,7 @@ function wrapVideo(video) {
 
   wrapper.style.display = 'inline-block';
   wrapper.style.overflow = 'hidden';
-  wrapper.style.lineHeight = '0';       
+  wrapper.style.lineHeight = '0';
   wrapper.style.width = video.offsetWidth + 'px';
   wrapper.style.height = video.offsetHeight + 'px';
 
@@ -30,13 +49,12 @@ function wrapVideo(video) {
 
 
 function applyZoom() {
-  const videos = document.querySelectorAll('video');
-  videos.forEach(video => {
-    wrapVideo(video);  
+  const target = findTarget();
+  if (!target) return;
 
-    video.style.transform = `scale(${currentZoom})`;
-    video.style.transformOrigin = 'center center';
-  });
+  wrapVideo(target);
+  target.style.transform = `scale(${currentZoom})`;
+  target.style.transformOrigin = 'center center';
 }
 
 
@@ -51,20 +69,15 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     currentZoom = 1;
     applyZoom();
   }
-  sendResponse({ zoom: currentZoom }); 
-  return true; 
+  sendResponse({ zoom: currentZoom });
+  return true;
 });
 
 
 const observer = new MutationObserver(() => {
-  const videos = document.querySelectorAll('video');
-
-  let anyUnwrapped = false;
-  videos.forEach(v => {
-    if (!v.parentElement?.classList.contains('vz-wrapper')) {
-      anyUnwrapped = true;
-    }
-  });
-  if (anyUnwrapped) applyZoom();
+  const target = findTarget();
+  if (target && !target.parentElement?.classList.contains('vz-wrapper')) {
+    applyZoom();
+  }
 });
 observer.observe(document.body, { childList: true, subtree: true });
