@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Video Zoomer",
-  "version": "1.0",
-  "description": "Zoom into any video with shortcuts or a popup.",
+  "version": "1.0.0",
+  "description": "Zoom into video content on YouTube, Udemy, Hotmart, Vimeo and more without affecting player controls. Use keyboard shortcuts or the popup to zoom in, out and reset.",
   "permissions": [
     "activeTab",
     "scripting"
