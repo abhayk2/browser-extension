@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Video Zoomer",
   "version": "1.0.0",
-  "description": "Zoom into video content on YouTube, Udemy, Hotmart, Vimeo and more without affecting player controls. Use keyboard shortcuts or the popup to zoom in, out and reset.",
+  "description": "Zoom into video content on YouTube, Udemy, Hotmart and more without affecting player controls.",
   "permissions": [
     "activeTab",
     "scripting"
