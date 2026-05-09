@@ -80,4 +80,11 @@ const observer = new MutationObserver(() => {
     applyZoom();
   }
 });
-observer.observe(document.body, { childList: true, subtree: true });
+
+if (document.body) {
+  observer.observe(document.body, { childList: true, subtree: true });
+} else {
+  document.addEventListener('DOMContentLoaded', () => {
+    observer.observe(document.body, { childList: true, subtree: true });
+  });
+}
