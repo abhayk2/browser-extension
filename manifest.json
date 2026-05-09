@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Video Zoomer",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Zoom into video content on YouTube, Udemy, Hotmart and more without affecting player controls.",
   "permissions": [
     "activeTab",
@@ -44,21 +44,21 @@
     "zoom-in": {
       "suggested_key": {
         "default": "Alt+Shift+Up",
-        "mac": "Ctrl+Shift+K"
+        "mac": "Command+Shift+Up"
       },
       "description": "Zoom in on the video"
     },
     "zoom-out": {
       "suggested_key": {
         "default": "Alt+Shift+Down",
-        "mac": "Ctrl+Shift+J"
+        "mac": "Command+Shift+Down"
       },
       "description": "Zoom out on the video"
     },
     "zoom-reset": {
       "suggested_key": {
         "default": "Ctrl+Shift+0",
-        "mac": "Ctrl+Shift+U"
+        "mac": "Command+Shift+0"
       },
       "description": "Reset video zoom"
     }
