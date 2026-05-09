@@ -27,11 +27,11 @@ Video Zoomer lets you scale the video frame up — right inside the tab — whil
 
 ## Keyboard Shortcuts
 
-| Action     | Windows / Linux   | macOS          |
-|------------|-------------------|----------------|
-| Zoom In    | `Alt + Shift + ↑` | `Ctrl+Shift+K` |
-| Zoom Out   | `Alt + Shift + ↓` | `Ctrl+Shift+J` |
-| Reset Zoom | `Ctrl + Shift + 0`| `Ctrl+Shift+U` |
+| Action     | Windows / Linux   | macOS             |
+|------------|-------------------|-------------------|
+| Zoom In    | `Alt + Shift + ↑` | `Cmd + Shift + ↑` |
+| Zoom Out   | `Alt + Shift + ↓` | `Cmd + Shift + ↓` |
+| Reset Zoom | `Ctrl + Shift + 0`| `Cmd + Shift + 0` |
 
 > **Note:** You can override these at `edge://extensions/shortcuts` or `chrome://extensions/shortcuts` to any combo you prefer.
 
