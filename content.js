@@ -92,7 +92,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     currentZoom = 1;
     applyZoom();
   } else if (message.action === 'getZoom') {
-    // Read-only — just returns current zoom without changing anything
     sendResponse({ zoom: currentZoom });
     return true;
   }
@@ -100,7 +99,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   return true;
 });
 
-// Debounced MutationObserver — waits 300ms after DOM settles before reacting
 let debounceTimer = null;
 const observer = new MutationObserver(() => {
   clearTimeout(debounceTimer);

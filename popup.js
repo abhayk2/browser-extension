@@ -10,6 +10,22 @@ document.getElementById('zoom-reset').addEventListener('click', () => {
   sendAction('zoomReset');
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    if (!tabs[0]) return;
+    chrome.tabs.sendMessage(tabs[0].id, { action: 'getZoom' }, (response) => {
+      if (chrome.runtime.lastError) {
+        document.getElementById('zoom-level').textContent = 'Not available on this page';
+        return;
+      }
+      if (response && response.zoom) {
+        document.getElementById('zoom-level').textContent =
+          `Zoom: ${Math.round(response.zoom * 100)}%`;
+      }
+    });
+  });
+});
+
 function sendAction(action) {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     if (!tabs[0]) return;
